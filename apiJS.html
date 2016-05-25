@@ -17,5 +17,17 @@
 		<button id="search">search</button>
 	</form>
 	<div id="list"></div>
+	<script type="text/javascript">
+		var list = document.getElementById("list");
+		var input = document.getElementById("input");
+		var button = document.getElementById("search");
+
+		button.addEventListener('click', function(e) {
+			e.preventDefault();
+			console.log("You clicked the button");
+		});
+
+
+	</script>
 </body>
 </html>
