@@ -40,8 +40,17 @@
 		xhttp.onreadystatechange = function() {
 			if(xhttp.readyState === 4 && xhttp.status === 200){
 				var obj = JSON.parse(xhttp.responseText);
+				var items = "";
+
 				console.log(obj);
 
+				for(var i in obj.Search) {
+					items += "<article>" +
+										"<h1>" + obj.Search[i].Title + "</h1>" +
+										"<p>" + obj.Search[i].Year + "</p>" +
+									 "</article>";
+				}
+				list.innerHTML = items;
 			}
 		};
 
