@@ -18,14 +18,32 @@
 	</form>
 	<div id="list"></div>
 	<script type="text/javascript">
+		var url = "http://www.omdbapi.com/?s=";
 		var list = document.getElementById("list");
 		var input = document.getElementById("input");
 		var button = document.getElementById("search");
 
+		var xhttp;
+		if(window.XMLHttpRequest){
+			xhttp = new XMLHttpRequest();
+		} else {
+			xhttp = new ActiveXObject("Microsoft.XMLHttp");
+		}
+
 		button.addEventListener('click', function(e) {
 			e.preventDefault();
-			console.log("You clicked the button");
+			
+			xhttp.open("GET", url + input.value );
+			xhttp.send();
 		});
+
+		xhttp.onreadystatechange = function() {
+			if(xhttp.readyState === 4 && xhttp.status === 200){
+				var obj = JSON.parse(xhttp.responseText);
+				console.log(obj);
+
+			}
+		};
 
 
 	</script>
