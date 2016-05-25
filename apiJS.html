@@ -47,7 +47,8 @@
 				for(var i in obj.Search) {
 					items += "<article>" +
 										"<h1>" + obj.Search[i].Title + "</h1>" +
-										"<p>" + obj.Search[i].Year + "</p>" +
+										"<p>Year: " + obj.Search[i].Year + "</p>" +
+										"<p>Type: " + obj.Search[i].Type + "</p>" +
 									 "</article>";
 				}
 				list.innerHTML = items;
